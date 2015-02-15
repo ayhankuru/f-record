@@ -1,0 +1,25 @@
+{
+  "name": "f-record",
+  "version": "0.1.0",
+  "description": "ffmpeg record screen",
+  "bin": {
+    "f-record": "./bin/f-record"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ayhankuru/moco"
+  },
+  "keywords": [
+    "screen",
+    "record"
+  ],
+  "author": "Ayhan Kuru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ayhankuru/moco/issues"
+  },
+  "homepage": "https://github.com/ayhankuru/moco"
+}

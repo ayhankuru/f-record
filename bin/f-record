@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+version="0.1.0"
+
+green='\033[0;32m'
+reset='\033[0m'
+bold='\033[1m'
+red='\033[31m'
+blue='\033[44m'
+boldreset='\033[0m'
+
+# usage info
+usage() {
+  cat <<EOF
+  Usage: f-record [options]
+  Options:
+    -r, --record         [videoname,time]
+    -u, --update         Update moco(1)
+    -v, --version        Output version
+    -h, --help           Help message
+EOF
+}
+
+check_ffmpeg(){
+    type "ffmpeg" &> /tmp/null;
+}
+
+update() {
+  command npm install -g f-record --slient
+}
+
+version() {
+    echo -e " ${blue} F-record version [${red}$version${reset}${blue}] ${reset}"
+}
+ 
+
+case "$1" in
+r|record|-r|--record) 
+  shift; 
+  if ! check_ffmpeg; then
+    echo -e " ${red} F-record Not ffmpeg  ${reset}"
+  else
+  echo -e "${blue} F-record recording.. ${reset}"
+  ffmpeg -f dshow  -i video="screen-capture-recorder"  -r 30 -t $2 -y $PWD/$1.mp4 -loglevel quiet > /tmp/null
+  echo -e "${blue} F-record record done :)  ${reset}"
+    
+  fi
+  ;;
+u|update|-u|--update) update ;;
+v|version|-V|--version) version ;;
+h|help|-h|--help) usage ;;
+*)
+    echo -e " ${blue} F-record: invalid option [${red}$command${reset}${blue}] ${reset}"
+    exit 1
+esac
