@@ -1,6 +1,6 @@
 {
   "name": "f-record",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ffmpeg record screen",
   "bin": {
     "f-record": "./bin/f-record"

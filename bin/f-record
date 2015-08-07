@@ -41,7 +41,7 @@ r|record|-r|--record)
     echo -e " ${red} F-record Not ffmpeg  ${reset}"
   else
   echo -e "${blue} F-record recording.. ${reset}"
-  ffmpeg -f dshow  -i video="screen-capture-recorder"  -r 30 -t $2 -y $PWD/$1.mp4 -loglevel quiet > /tmp/null
+  ffmpeg -f dshow  -i video="screen-capture-recorder"  -r 20 -t $2 -y $PWD/$1.mp4 -loglevel quiet > /tmp/null
   echo -e "${blue} F-record record done :)  ${reset}"
     
   fi
